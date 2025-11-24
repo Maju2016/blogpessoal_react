@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: 'https://blogpessoal-yo2i.onrender.com'
+    baseURL: 'https://blogpessoal-2xyv.onrender.com'
 })
 
 //Função para Cadastrar Usuario
@@ -18,7 +18,7 @@ export const login = async (url: string, dados: Object, setDados: Function) => {
 
 //Função para consultar com token
 export const buscar = async (url: string, setDados: Function, header: Object) => {
-    const resposta = await api.post(url, header)
+    const resposta = await api.get(url, header)
     setDados(resposta.data)
 }
 
@@ -36,5 +36,5 @@ export const atualizar = async (url: string, dados: Object, setDados: Function, 
 
 //Função para deletar com token
 export const deletar = async (url: string, header: Object) => {
-    await api.post(url, header)
+    await api.delete(url, header)
 }
